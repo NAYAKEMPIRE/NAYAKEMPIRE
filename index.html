@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nayak Empire | Cybersecurity</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #050505;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 18px 8%;
+
+            background: rgba(5, 5, 5, 0.95);
+            border-bottom: 1px solid #1d1d1d;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ff88;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 90vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            padding: 40px 20px;
+
+            background:
+                radial-gradient(circle at center, #10251c 0%, #050505 55%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .tag {
+            color: #00ff88;
+            font-size: 16px;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 70px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #00ff88;
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            color: #999999;
+            font-size: 18px;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .button {
+            display: inline-block;
+
+            margin-top: 30px;
+            padding: 14px 28px;
+
+            background: #00ff88;
+            color: #000000;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            border-radius: 6px;
+
+            transition: 0.3s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.4);
+        }
+
+        /* GENERAL SECTIONS */
+
+        section {
+            padding: 90px 8%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #00ff88;
+        }
+
+        .section-title p {
+            color: #888888;
+        }
+
+        /* ABOUT */
+
+        .about {
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 15px auto;
+            color: #bbbbbb;
+            font-size: 18px;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-card {
+            padding: 30px 20px;
+
+            background: #101010;
+
+            border: 1px solid #222222;
+            border-radius: 10px;
+
+            text-align: center;
+
+            transition: 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            border-color: #00ff88;
+        }
+
+        .skill-card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .skill-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #888888;
+            font-size: 14px;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-card {
+            padding: 30px;
+
+            background: #101010;
+
+            border: 1px solid #222222;
+            border-radius: 10px;
+
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #00ff88;
+            margin-bottom: 12px;
+        }
+
+        .project-card p {
+            color: #999999;
+        }
+
+        /* LEARNING */
+
+        .learning {
+            background: #080808;
+            max-width: none;
+        }
+
+        .learning-container {
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .learning-item {
+            display: flex;
+            gap: 20px;
+
+            padding: 25px;
+            margin-bottom: 15px;
+
+            background: #111111;
+            border-left: 3px solid #00ff88;
+        }
+
+        .learning-number {
+            font-size: 25px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        .learning-item h3 {
+            margin-bottom: 5px;
+        }
+
+        .learning-item p {
+            color: #888888;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+        }
+
+        .contact p {
+            color: #999999;
+            font-size: 18px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 20px;
+
+            background: #030303;
+            border-top: 1px solid #1d1d1d;
+
+            color: #777777;
+        }
+
+        footer span {
+            color: #00ff88;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .hero h2 {
+                font-size: 22px;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            NAYAK EMPIRE
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#learning">Learning</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- HERO -->
+
+    <header class="hero" id="home">
+
+        <div class="hero-content">
+
+            <div class="tag">
+                CYBERSECURITY • TECHNOLOGY • LEARNING
+            </div>
+
+            <h1>
+                NAYAK <span>EMPIRE</span>
+            </h1>
+
+            <h2>
+                Cybersecurity & Technology
+            </h2>
+
+            <p>
+                Welcome to Nayak Empire — a personal cybersecurity
+                and technology platform focused on learning,
+                building projects and exploring the digital world.
+            </p>
+
+            <a href="#about" class="button">
+                Explore Website
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+
+    <section id="about">
+
+        <div class="section-title">
+
+            <h2>About <span>Nayak Empire</span></h2>
+
+            <p>
+                Learning today. Building tomorrow.
+            </p>
+
+        </div>
+
+        <div class="about">
+
+            <p>
+                Nayak Empire is a cybersecurity and technology
+                learning platform created by Rohan Rathod.
+            </p>
+
+            <p>
+                The goal is to learn cybersecurity, ethical hacking,
+                networking, programming and modern technology
+                through practical and authorized projects.
+            </p>
+
+            <p>
+                This website will document the journey,
+                projects and knowledge gained along the way.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+
+    <section id="skills">
+
+        <div class="section-title">
+
+            <h2>My <span>Skills</span></h2>
+
+            <p>
+                Technologies I am learning and developing.
+            </p>
+
+        </div>
+
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <div class="icon">
+                    🌐
+                </div>
+
+                <h3>Networking</h3>
+
+                <p>
+                    Learning networks, IP addresses,
+                    protocols and network security.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="icon">
+                    🔐
+                </div>
+
+                <h3>Cybersecurity</h3>
+
+                <p>
+                    Learning security concepts,
+                    vulnerabilities and defense.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="icon">
+                    💻
+                </div>
+
+                <h3>Programming</h3>
+
+                <p>
+                    Learning programming and
+                    automation for technology projects.
+                </p>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <div class="icon">
+                    🤖
+                </div>
+
+                <h3>Artificial Intelligence</h3>
+
+                <p>
+                    Exploring AI tools and
+                    intelligent applications.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PROJECTS -->
+
+    <section id="projects">
+
+        <div class="section-title">
+
+            <h2>My <span>Projects</span></h2>
+
+            <p>
+                Practical projects and experiments.
+            </p>
+
+        </div>
+
+
+        <div class="projects-grid">
+
+            <div class="project-card">
+
+                <h3>🔐 Cybersecurity Lab</h3>
+
+                <p>
+                    Educational cybersecurity experiments
+                    performed only in authorized laboratory
+                    environments.
+                </p>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>🌐 Network Security Lab</h3>
+
+                <p>
+                    Learning networking concepts and
+                    defensive security techniques.
+                </p>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>🤖 AI Project</h3>
+
+                <p>
+                    Exploring artificial intelligence and
+                    building useful technology projects.
+                </p>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <h3>💻 Future Project</h3>
+
+                <p>
+                    New projects will be added here
+                    as the Nayak Empire journey continues.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- LEARNING ROADMAP -->
+
+    <section class="learning" id="learning">
+
+        <div class="section-title">
+
+            <h2>My <span>Learning Journey</span></h2>
+
+            <p>
+                Step-by-step cybersecurity learning.
+            </p>
+
+        </div>
+
+
+        <div class="learning-container">
+
+
+            <div class="learning-item">
+
+                <div class="learning-number">
+                    01
+                </div>
+
+                <div>
+
+                    <h3>Networking Fundamentals</h3>
+
+                    <p>
+                        Understanding IP addresses,
+                        DNS, ports, protocols and networks.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="learning-item">
+
+                <div class="learning-number">
+                    02
+                </div>
+
+                <div>
+
+                    <h3>Linux Fundamentals</h3>
+
+                    <p>
+                        Learning Linux commands,
+                        permissions and system basics.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="learning-item">
+
+                <div class="learning-number">
+                    03
+                </div>
+
+                <div>
+
+                    <h3>Web Security</h3>
+
+                    <p>
+                        Understanding common web security
+                        concepts through legal practice labs.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="learning-item">
+
+                <div class="learning-number">
+                    04
+                </div>
+
+                <div>
+
+                    <h3>Ethical Hacking</h3>
+
+                    <p>
+                        Studying security testing and
+                        responsible vulnerability research.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+
+    <section id="contact">
+
+        <div class="section-title">
+
+            <h2>Contact <span>Me</span></h2>
+
+            <p>
+                Connect with Nayak Empire.
+            </p>
+
+        </div>
+
+
+        <div class="contact">
+
+            <p>
+                Interested in technology, cybersecurity
+                or collaboration?
+            </p>
+
+            <a
+                href="mailto:your-email@example.com"
+                class="button"
+            >
+                Contact Me
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        © 2026 <span>Nayak Empire</span> —
+        Created by Rohan Rathod
+
+    </footer>
+
+
+</body>
+</html>
